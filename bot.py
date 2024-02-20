@@ -34,9 +34,9 @@ def parse_yaml_config(config_file_path):
 # Gather our required inputs
 config = parse_yaml_config(os.path.expanduser(CONFIG_FILE_LOCATION))
 if config is None:
-    config = dict();
+    config = dict()
 
-log.info(config);
+log.info(config)
 
 webex_email = os.getenv('WEBEX_EMAIL')
 if webex_email is not None:
@@ -50,11 +50,11 @@ if access_token is not None:
 # Make sure we have everything we need
 if config.get('webex_email') is None:
     log.error(f"The webex email is not found in the config file {CONFIG_FILE_LOCATION} or the environment var WEBEX_EMAIL")
-    exit(3);
+    exit(3)
 
 if config.get('webex_token') is None:
     log.error(f"The webex token is not found in the config file {CONFIG_FILE_LOCATION} or the environment var WEBEX_TEAMS_ACCESS_TOKEN")
-    exit(1);
+    exit(1)
 
 # Create a Bot Object
 bot = WebexBot(teams_bot_token=config['webex_token'],
